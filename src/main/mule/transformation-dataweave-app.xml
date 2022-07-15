@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd"></mule>
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="transformation-dataweave-appFlow" doc:id="3885a7e3-65d4-4494-8b2f-42fd15d05185" >
+		<http:listener doc:name="Listener" doc:id="cbfa5d2d-b1ae-4a18-a67d-d41dbd2d1816" config-ref="HTTP_Listener_config" path="test"/>
+		<ee:transform doc:name="Transform Message" doc:id="d0c00000-0d87-42ec-85dd-bd1653050a76" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/dw
+---
+{
+  users: {
+    company: "MuleSoft",
+    user @(name: "" default "asd",lastName: "Shokida"): "",
+    user @(name: "Mariano",lastName: "Achaval"): ""
+  }
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="89e47ea2-8797-4a7b-81f9-34bf8771b432" message="test: #[payload]"/>
+	</flow>
+</mule>
