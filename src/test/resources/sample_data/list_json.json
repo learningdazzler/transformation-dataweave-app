@@ -1,0 +1,138 @@
+[{
+  "parentsDetails": 1,
+  "father": {
+    "name": "Raghav",
+    "age": 35,
+    "profession": "doctor"
+  },
+  "mother": {
+    "name": "vasanthi",
+    "age": 29,
+    "profession": "engineer"
+  },
+  "address": [
+    {
+      "cityAddress": {
+        "street": "100 East Main Street",
+        "city": "Southernville",
+        "state": "NY",
+        "zip": "19910"
+      }
+    },
+    {
+      "villageAddress": {
+        "street": "100 West Birch Lane",
+        "city": "Northnville",
+        "state": "NY",
+        "zip": "19911"
+      }
+    }
+  ],
+  "children": [
+    {
+      "child1": {
+        "name:": "anvay",
+        "gender": "male",
+        "age": 3
+      },
+      "child2": {
+        "name:": "vidhaya",
+        "gender": "demale",
+        "age": 2
+      }
+    }
+  ]
+}
+,
+{
+  "parentsDetails": 2,
+  "father": {
+    "name": "Ahmed",
+    "age": 45,
+    "profession": "waiter"
+  },
+  "mother": {
+    "name": "fatima",
+    "age": 29,
+    "profession": "doctor"
+  },
+  "address": [
+    {
+      "cityAddress": {
+        "street": "100 East Main Street",
+        "city": "Southernville",
+        "state": "WA",
+        "zip": "19915"
+      }
+    },
+    {
+      "villageAddress": {
+        "street": "100 West Birch Lane",
+        "city": "Northnville",
+        "state": "PA",
+        "zip": "19511"
+      }
+    }
+  ],
+  "children": [
+    {
+      "child1": {
+        "name:": "vayan",
+        "gender": "male",
+        "age": 13
+      },
+      "child2": {
+        "name:": "vishay",
+        "gender": "male",
+        "age": 20
+      }
+    }
+  ]
+}
+,
+{
+  "parentsDetails": 3,
+  "father": {
+    "name": "john",
+    "age": 25,
+    "profession": "repairer"
+  },
+  "mother": {
+    "name": "catherine",
+    "age": 24,
+    "profession": "housewife"
+  },
+  "address": [
+    {
+      "cityAddress": {
+        "street": "800 East Main Street",
+        "city": "Southernville",
+        "state": "NY",
+        "zip": "49910"
+      }
+    },
+    {
+      "villageAddress": {
+        "street": "100 East Birch Lane",
+        "city": "Northnville",
+        "state": "CA",
+        "zip": "69911"
+      }
+    }
+  ],
+  "children": [
+    {
+      "child1": {
+        "name:": "sean",
+        "gender": "female",
+        "age": 8
+      },
+      "child2": {
+        "name:": "kate",
+        "gender": "female",
+        "age": 5
+      }
+    }
+  ]
+}
+]

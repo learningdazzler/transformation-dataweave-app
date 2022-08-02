@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="dataweave-core-arraysFlow" doc:id="9798229e-93fc-4c33-9731-34551cbeecf7" >
+		<http:listener doc:name="Listener" doc:id="04b70013-9803-4661-bdaa-8479a53cb131" config-ref="HTTP_Listener_config" path="dw/arrays"/>
+		<logger level="INFO" doc:name="Logger" doc:id="77ef9079-36b1-4d3f-aa78-63e50d5c8738" message="hi"/>
+	</flow>
+</mule>
