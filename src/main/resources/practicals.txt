@@ -1,3 +1,6 @@
 1) ["c","b","a"] - make it chronological order or alphabetical order, what do you call it?
 2) [3,2,1] - make it into a numerical order?
-3) do use JSON and XML directives in DataWeave
+3) do use DW, JSON and XML directives in DataWeave
+4) remove n'th index from array
+5) Find index of specific element
+6) 

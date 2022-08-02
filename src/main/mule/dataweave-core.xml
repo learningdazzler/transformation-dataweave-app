@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="dataweave-coreFlow" doc:id="db4a3512-3c98-4867-9e5b-6ce71dddc16b" >
+		<http:listener doc:name="Listener" doc:id="48427156-30d2-4989-9d12-90dbb648f263" config-ref="HTTP_Listener_config" path="dw/core/singleselect"/>
+		<ee:transform doc:name="select from JSON" doc:id="e92c7ba5-6ce4-4d8e-986a-513667e0d6be" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[{
+		"parentsDetails": 1,
+		"father": {
+			"name": "Raghav",
+			"age": 35,
+			"profession": "doctor"
+		},
+		"mother": {
+			"name": "vasanthi",
+			"age": 29,
+			"profession": "engineer"
+		},
+		"address": [{
+				"cityAddress": {
+					"street": "100 East Main Street",
+					"city": "Southernville",
+					"state": "NY",
+					"zip": "19910"
+				}
+			},
+			{
+				"villageAddress": {
+					"street": "100 West Birch Lane",
+					"city": "Northnville",
+					"state": "NY",
+					"zip": "19911"
+				}
+			}
+		],
+		"children": [{
+			"child1": {
+				"name:": "anvay",
+				"gender": "male",
+				"age": 3
+			},
+			"child2": {
+				"name:": "vidhaya",
+				"gender": "demale",
+				"age": 2
+			}
+		}]
+	},
+	{
+		"parentsDetails": 2,
+		"father": {
+			"name": "Ahmed",
+			"age": 45,
+			"profession": "waiter"
+		},
+		"mother": {
+			"name": "fatima",
+			"age": 29,
+			"profession": "doctor"
+		},
+		"address": [{
+				"cityAddress": {
+					"street": "100 East Main Street",
+					"city": "Southernville",
+					"state": "WA",
+					"zip": "19915"
+				}
+			},
+			{
+				"villageAddress": {
+					"street": "100 West Birch Lane",
+					"city": "Northnville",
+					"state": "PA",
+					"zip": "19511"
+				}
+			}
+		],
+		"children": [{
+			"child1": {
+				"name:": "vayan",
+				"gender": "male",
+				"age": 13
+			},
+			"child2": {
+				"name:": "vishay",
+				"gender": "male",
+				"age": 20
+			}
+		}]
+	},
+	{
+		"parentsDetails": 3,
+		"father": {
+			"name": "john",
+			"age": 25,
+			"profession": "repairer"
+		},
+		"mother": {
+			"name": "catherine",
+			"age": 24,
+			"profession": "housewife"
+		},
+		"address": [{
+				"cityAddress": {
+					"street": "800 East Main Street",
+					"city": "Southernville",
+					"state": "NY",
+					"zip": "49910"
+				}
+			},
+			{
+				"villageAddress": {
+					"street": "100 East Birch Lane",
+					"city": "Northnville",
+					"state": "CA",
+					"zip": "69911"
+				}
+			}
+		],
+		"children": [{
+			"child1": {
+				"name:": "sean",
+				"gender": "female",
+				"age": 8
+			},
+			"child2": {
+				"name:": "kate",
+				"gender": "female",
+				"age": 5
+			}
+		}]
+	}
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<ee:transform doc:name="Transform Message" doc:id="0546346f-5dbb-4e6d-90a8-0d35363722b5" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload.parentsDetails]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="dataweave-var" doc:id="07513795-84f4-469c-9cef-6ceb2179c221" >
+		<http:listener doc:name="Listener" doc:id="a9b7c905-53d1-45ae-b1c8-9d2c10918af0" config-ref="HTTP_Listener_config" path="dw/core/var"/>
+		<ee:transform doc:name="Transform Message" doc:id="dd1179ad-764f-4571-bf4a-f77ccadf1644" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+var a='g'
+output application/dw
+---
+a]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="65729c72-f6d3-454d-ae50-1f4d6d330497" message="#[typeOf(payload)]"/>
+	</flow>
+</mule>
